@@ -22,7 +22,7 @@ command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
 if has("autocmd")
     " No formatting on o key newlines
     autocmd BufNewFile,BufEnter * set formatoptions-=o
-
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
     " No more complaining about untitled documents
     autocmd FocusLost silent! :wa
 

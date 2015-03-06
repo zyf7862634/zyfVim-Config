@@ -1,13 +1,13 @@
 
 " tagbar
-nnoremap <F8> :TagbarToggle<cr>
-let g:tagbar_sort = 0
-let g:tagbar_autofocus = 1
-let g:tagbar_singleclick = 1
-let g:tagbar_autoshowtag = 1
-let g:tagbar_previewwin_pos = "aboveleft"
+"nnoremap <F8> :TagbarToggle<cr>
+"let g:tagbar_sort = 0
+"let g:tagbar_autofocus = 1
+"let g:tagbar_singleclick = 1
+"let g:tagbar_autoshowtag = 1
+"let g:tagbar_previewwin_pos = "aboveleft"
 " default no preview window, use it with P
-let g:tagbar_autopreview = 0
+"let g:tagbar_autopreview = 0
 
 " pymode
 let g:pymode_python = 'python'
@@ -43,8 +43,22 @@ let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 0
 let g:airline#extensions#whitespace#enabled = 1
 
-" syntastic
-let g:syntastic_check_on_wq = 0
+" syntastic  checkon code off
+"let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = '✗' "set error or warning signs
+let g:syntastic_warning_symbol = '⚠'
+"let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting = 0
+"let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
+"let g:syntastic_python_checkers=['pyflakes']
+""highlight SyntasticErrorSign guifg=white guibg=black
+
+let g:syntastic_cpp_include_dirs = ['/usr/include/']
+let g:syntastic_cpp_remove_include_errors = 1
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+let g:syntastic_enable_balloons = 1 "whether to show balloons
 
 " YankRing
 nnoremap <silent> <F3> :YRShow<CR>
@@ -56,7 +70,10 @@ nnoremap <F2> :GundoToggle<CR>
 " DoxygenToolkit.vim
 let g:DoxygenToolkit_authorName = 'lenny'
 let g:DoxygenToolkit_versionString = '1.0'
-
+source ~/.vim/pluginconfig/cpp.vim
+source ~/.vim/pluginconfig/a.vim
+source ~/.vim/pluginconfig/grep.vim
+source ~/.vim/pluginconfig/minibufexpl.vim
 " neocomplete settings
 "source ~/.vim/pluginconfig/neocomplete.vim
 " cscope settings
@@ -70,8 +87,24 @@ source ~/.vim/pluginconfig/winmanager.vim
 source ~/.vim/pluginconfig/winfileexplorer.vim
 source ~/.vim/pluginconfig/wintagexplorer.vim
 
+let g:winManagerWindowLayout='FileExplorer|TagList'
 nmap <F4> :WMToggle<cr>
 
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
+" 只能是 #include 或已打开的文件
+nnoremap <leader>je :YcmCompleter GoToDefinition<CR>
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif"离开插入模式后自动关闭预览窗口
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+"配置默认的ycm_extra_conf.py
+let g:ycm_confirm_extra_conf=0
+"打开vim时不再询问是否加载ycm_extra_conf.py配置
+let g:ycm_collect_identifiers_from_tag_files = 1
+"使用ctags生成的tags文件
+
+"minibufexpl c-tab change window
+let g:miniBufExplMapCTabSwitchBufs = 1
 
 " vim-ctrlspace
 let g:ctrlspace_default_mapping_key="<Leader><Space>"
@@ -80,8 +113,8 @@ let g:ctrlspace_default_mapping_key="<Leader><Space>"
 "map J <Plug>(expand_region_expand)
 "map K <Plug>(expand_region_shrink)
 
-" vim-better-whitespace
-autocmd FileType c,h,py,pyw,vim,js,cpp autocmd BufWritePre <buffer> StripWhitespace
+" vim-better-whitespace   自动执行命令write 如果是FileType类型的文件
+"autocmd FileType c,h,py,pyw,vim,js,cpp autocmd BufWritePre <buffer> StripWhitespace
 
 " vim-javascript
 let g:javascript_enable_domhtmlcss=1

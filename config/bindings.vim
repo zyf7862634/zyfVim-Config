@@ -104,24 +104,38 @@ function! s:VSetSearch()
 endfunction
 vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
 vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
+"cscope map
+nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
 "map Q to something useful
 noremap Q gq
 
 "make Y consistent with C and D
 nnoremap Y y$
-
+"copy
+vmap <c-c> "+y
 " Writes the current buffer unless we're the in QuickFix mode.
 " ---------------
-function WriteBuffer()
-    if &filetype == "qf"
-        execute "normal! \<enter>"
-    else
-        :write
-    endif
-endfunction
-noremap <silent> <enter> :call WriteBuffer()<CR>
-
+"function WriteBuffer()
+"if &filetype == "qf"
+"        execute "normal! \<enter>"
+"    else
+"        :write
+"    endif
+"endfunction
+"save change
+"noremap <silent> <C-m> :call WriteBuffer()<CR>
+"a.vim
+nnoremap <silent> <F10> :A<CR>
+"grep.vim
+nnoremap <silent> <F7> :Grep<CR>
 " j,k just move one screen line
 nnoremap j gj
 nnoremap k gk

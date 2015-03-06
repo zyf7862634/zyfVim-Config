@@ -25,8 +25,8 @@ set list
 set listchars=tab:▷\ ,trail:⋅,nbsp:⋅
 
 "some stuff to get the mouse going in term
-"set mouse=a
-set ttymouse=xterm2
+set mouse=a
+"set ttymouse=xterm2
 
 "tell the term has 256 colors
 set t_Co=256
@@ -43,7 +43,7 @@ set cursorline
 set laststatus=2
 
 " colorscheme
-"syntax enable
+syntax enable
 set background=dark
 colorscheme wombat
 
@@ -110,6 +110,18 @@ set matchpairs+=<:>
 
 " auto add tags file updirs
 :set tags=tags;/
+"ctags setting
+"set tags+=./tags
+"set tags+=../tags
+"set tags+=../../tags
+"cscope setting
+if filereadable("cscope.out")
+    cs add cscope.out
+elseif $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+endif
+"是否用quickfix窗口显示cscope
+:set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 " File encoding
 set fileencoding=utf8
@@ -140,6 +152,8 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
 set completeopt+=longest
 set completeopt-=preview
 " close popup menu window when leave insert mode
+"
+"离开插入模式自动关闭预览
 autocmd InsertLeave * if pumvisible()==0|pclose|endif
 " select current item when press <CR>
 inoremap <expr> <CR>  pumvisible()?"\<C-y>":"\<CR>"

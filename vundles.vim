@@ -34,7 +34,9 @@ Bundle 'Valloric/YouCompleteMe'
 "Bundle 'terryma/vim-expand-region'
 Bundle 'SuperTab'
 Bundle 'winmanager'
-
+Bundle 'a'
+Bundle 'grep'
+Bundle 'minibufexpl'
 " for git
 Bundle 'tpope/vim-git'
 Bundle 'airblade/vim-gitgutter'
@@ -44,8 +46,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'mattn/emmet-vim'
 Bundle "pangloss/vim-javascript"
 " need python suport
-"Bundle 'klen/python-mode'
-"Bundle 'hdima/python-syntax'
+" Bundle 'klen/python-mode'
+Bundle 'hdima/python-syntax'
 
 "Bundle 'SirVer/ultisnips'
 "Bundle 'honza/vim-snippets'

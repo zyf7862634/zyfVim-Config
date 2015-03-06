@@ -24,6 +24,9 @@ ln -s ~/.vim/vimrc ~/.vimrc
 
 # install all plugins
 vim +PluginInstall +qall
+cp ~/.vim/bundle/a.vim ~/.vim/pluginconfig/
+cp ~/.vim/bundle/grep.vim ~/.vim/pluginconfig/
+cp ~/.vim/bundle/minibufexpl.vim ~/.vim/pluginconfig/
 
 # get all vim-snippets
 # cd ~/.vim/bundle/vim-snippets/
