@@ -59,7 +59,8 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_enable_balloons = 1 "whether to show balloons
-
+"zhu shi use
+source ~/.vim/pluginconfig/NERD_commenter.vim
 " YankRing
 nnoremap <silent> <F3> :YRShow<CR>
 let g:yankring_replace_n_pkey=''

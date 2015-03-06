@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 
 "Bundle 'tpope/vim-surround'
 "Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/syntastic'
 "Bundle 'godlygeek/csapprox'
 "Bundle 'vim-scripts/delimitMate.vim'
