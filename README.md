@@ -1,7 +1,7 @@
 # zyfVim-Config
 在Youcm目录下 支持C++ --clang-completer
 ./install.sh --clang-completer
-
+123
 条件cmake，python2.6以上
 如果没有的化要安装
 sudo apt-get install cmake 
