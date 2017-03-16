@@ -4,7 +4,7 @@
 set backup
 set backupdir=~/.vim/.backup
 set directory=~/.vim/.swap
-
+"-----------------------------------"
 if v:version >= 703
     "undo settings
     set undodir=~/.vim/.undofiles
